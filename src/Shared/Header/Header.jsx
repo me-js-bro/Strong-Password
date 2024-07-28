@@ -19,7 +19,7 @@ const Header = () => {
             <div className={`nav-link ${isOpen ? 'change' : ''}`}>
                 <Link to="/">Home</Link>
                 <Link to="/check-password">Check Password</Link>
-                <a target='_blank' href="https://github.com/me-js-bro">
+                <a target='_blank' href="https://github.com/me-js-bro/strong-password">
                     Source Code
                 </a>
             </div>

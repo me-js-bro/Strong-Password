@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Check.css';
 
 const Check = () => {
@@ -11,6 +11,10 @@ const Check = () => {
     const numbers = /\d/;
     const upperCase = /[A-Z]/;
     const lowerCase = /[a-z]/
+
+    const suscessMessage = "Your password is strong enough"
+    const errorMessage = `Your password is not strong enough.
+    Use Numbers, special characters, capital and small letters`;
 
     const getPassword = (e) => {
         setPass(e.target.value);
@@ -27,17 +31,14 @@ const Check = () => {
             setPassLength(length)
 
             if ( hasSpecialChars && hasNumber && hasUpperCase && hasLoserCase && length > 8 ) {
-                setStrongMsg("Your password is strong enough")
+                setStrongMsg(suscessMessage)
                 setNotStrong("")
             } else {
-                setNotStrong(`Your password is not enough strong.\n Use a mixer of Numbers, spacial characters, capital and small letter`)
+                setNotStrong(errorMessage)
                 setStrongMsg("")
             }
         }
     };
-
-    // useEffect(() => {
-    // }, [passLength]);
 
     return (
         <div className='home'>
@@ -65,7 +66,8 @@ const Check = () => {
             </button>
 
             <p className='text'>Your password has <span>{passLength}</span> characters.</p>
-            <p className='msg'>{strongMsg}{notStrong}</p>
+            <p className='msg strong'>{strongMsg}</p>
+            <p className='msg not-strong'>{notStrong}</p>
         </div>
     );
 };

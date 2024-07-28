@@ -96,7 +96,14 @@ const Home = () => {
                 <div className='line'></div>
             </div>
 
-            <input className="prompt" type="text" name="prompt" placeholder='Your Text' onChange={getPrompt}/>
+            <input
+            className="prompt"
+            type="text"
+            name="prompt"
+            placeholder='Your Text'
+            onChange={getPrompt}
+            onKeyUp={(e) => e.key === "Enter" && handleInput()}
+            />
 
             <button className='submit' onClick={handleInput}>
                 <div className='btn-line line1'>

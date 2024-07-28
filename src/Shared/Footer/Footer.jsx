@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
     const date = new Date().getFullYear()
     return (
-        <div>
+        <div className='footer'>
             <p className='footer-text'>Copyright (c) {date} Js Bro ( Md. Mahin Islam Mahi) </p>
         </div>
     );

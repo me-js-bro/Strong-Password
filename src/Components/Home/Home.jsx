@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Home.css'
 import toast from 'react-hot-toast';
 
 const Home = () => {
     const [ prompt, setPrompt ] = useState("");
     const [ password, setPassword ] = useState("")
+    const btnRef = useRef(null)
 
 
     function generatePassword(input) {
@@ -69,14 +70,18 @@ const Home = () => {
         } else {
             setPassword(" ")
         }
+
+        if (btnRef.current) {
+            btnRef.current.blur();
+        }
     }
 
     const handleCopy = () => {
-        if ( password ) {
+        if ( !password == " " ) {
             navigator.clipboard.writeText(password). then(() => {
-                toast.success("Copied to clipboard");
+                toast.success( "Copied to clipboard" );
             }).catch(err => {
-                toast.error("Could not copy to clipboard");
+                toast.error( err + "Could not copy to clipboard" );
             })
         }
     }
@@ -87,13 +92,13 @@ const Home = () => {
 
             <div className='extra'>
                 <div className='line'></div>
-                <h3>Write your favourite text here.</h3>
+                <h3>Write your favourite text here</h3>
                 <div className='line'></div>
             </div>
 
             <input className="prompt" type="text" name="prompt" placeholder='Your Text' onChange={getPrompt}/>
 
-            <button className='submit' onClick={handleInput}>
+            <button className='submit' onClick={handleInput} ref={btnRef}>
                 <div className='btn-line line1'>
                 </div>
                 generate

@@ -38,18 +38,32 @@
         justify-content: center;
         text-align: center;
         position: relative;
+        margin-bottom: 100px;
     }
 
     .nav-link {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-bottom: 1px solid #25313a;
+        border-bottom: 2px solid #25313a6d;
+        border-radius: 12px;
         margin-bottom: -10px;
         width: 100%;
-        position: relative;
-        top: -200px;
+        position: absolute;
+        top: -270px;
+        background: #00000038;
+        height: 220px;
+        width: full;
         transition: 0.2s linear;
+    }
+
+    .nav-link a {
+        margin: 5px 0;
+        transition: 0.3s linear;
+    }
+
+    .nav-link a:hover {
+        letter-spacing: 5px;
     }
 
     .ham {
@@ -59,6 +73,7 @@
         top: 0;
         right: -10px;
         cursor: pointer;
+        z-index: 100;
     }
 
     .span {

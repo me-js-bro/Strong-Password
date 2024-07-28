@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 const Home = () => {
     const [ prompt, setPrompt ] = useState("");
     const [ password, setPassword ] = useState("")
-    const btnRef = useRef(null)
+    // const btnRef = useRef(null)
 
 
     function generatePassword(input) {
@@ -31,7 +31,7 @@ const Home = () => {
         }
     
         // Add random special characters and numbers at the beginning and end
-        const specialChars = "!@#$%^&*";
+        const specialChars = "`~!@#$%^&*,<.>'/[]{}()-_=+";
         let beginning = "";
         let end = "";
     
@@ -71,9 +71,9 @@ const Home = () => {
             setPassword(" ")
         }
 
-        if (btnRef.current) {
-            btnRef.current.blur();
-        }
+        // if (btnRef.current) {
+        //     btnRef.current.blur();
+        // }
     }
 
     const handleCopy = () => {
@@ -98,7 +98,7 @@ const Home = () => {
 
             <input className="prompt" type="text" name="prompt" placeholder='Your Text' onChange={getPrompt}/>
 
-            <button className='submit' onClick={handleInput} ref={btnRef}>
+            <button className='submit' onClick={handleInput}>
                 <div className='btn-line line1'>
                 </div>
                 generate
